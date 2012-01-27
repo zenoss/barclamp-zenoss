@@ -64,13 +64,6 @@ when "centos","redhat","scientific"
   #end redhat/centos/scientific block
 when "debian","ubuntu"
 
-  packages = %w{ttf-liberation ttf-linux-libertine}
-  packages.each do |pkg|
-    apt_package pkg do
-      action :install
-    end
-  end
-
   #Zenoss hasn't signed their repository http://dev.zenoss.org/trac/ticket/7421
   #This package must be imported into the crowbar server to work. Use the official
   #tarball if you're not building the barclamp yourself. --Keith
