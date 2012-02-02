@@ -64,14 +64,17 @@ when "centos","redhat","scientific"
   #end redhat/centos/scientific block
 when "debian","ubuntu"
 
-  #Zenoss hasn't signed their repository http://dev.zenoss.org/trac/ticket/7421
-  #This package must be imported into the crowbar server to work. Use the official
-  #tarball if you're not building the barclamp yourself. --Keith
-  apt_package "zenoss-stack" do
-    version node["zenoss"]["server"]["version"]
-    options "--allow-unauthenticated"
-    action :install
+  cookbook_file "/tmp/zenoss-stack.deb" do
+    source zenoss[:zenoss][:file][:stack]
+    mode "0755"
   end
+
+  package "/tmp/zenoss-stack.deb" do
+    source "/tmp/zenoss-stack.deb"
+    action :install
+    provider Chef::Provider::Package::Dpkg
+  end
+
   #end of debian/ubuntu
 end
 

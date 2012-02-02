@@ -33,6 +33,8 @@ default[:zenoss][:server][:zenoss_pubkey]   = "" #gets set in the server recipe,
 case node['platform']
 when "ubuntu","debian"
   default[:zenoss][:server][:zenhome]         = "/usr/local/zenoss/zenoss" #RPM is different
+  default[:zenoss][:file][:stack]             = "zenoss-stack_3.2.1_x64.deb"
+
 when "redhat","centos","scientific"
   default[:zenoss][:server][:zenhome]         = "/opt/zenoss" #RPM is different
 end
@@ -42,6 +44,7 @@ default[:zenoss][:server][:installed_zenpacks] = {
   "ZenPacks.zenoss.DeviceSearch" => "1.0.0",
   "ZenPacks.zenoss.LinuxMonitor"  => "1.1.5",
   "ZenPacks.community.MySQLSSH"  => "0.4",
+  "ZenPacks.zenoss.OpenStackSwift" => "0.7.0",
 }
 
 #patches from http://dev.zenoss.com/trac/report/6 marked 'closed'

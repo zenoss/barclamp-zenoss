@@ -10,7 +10,7 @@ barclamp:
   name: zenoss
   display: Zenoss
   description: A way to maximize awesomeness for Zenoss
-  version: 0
+  version: 0.1
   member:
     - zenoss
 
@@ -27,10 +27,7 @@ crowbar:
 
 debs:
   pkgs:
-   - ttf-liberation 
-   - ttf-linux-libertine
   raw_pkgs:
-    - http://dev.zenoss.org/deb/dists/main/stable/binary-amd64/zenoss-stack_3.2.1_x64.deb
 
 rpms:
   repos:

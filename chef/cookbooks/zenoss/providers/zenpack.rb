@@ -26,12 +26,19 @@ action :install do
   unless @zenpack.exists
     zpfile = "#{new_resource.package}-#{new_resource.version}-#{new_resource.py_version}.egg"
     Chef::Log.info "Installing the #{zpfile} ZenPack."
+    
     #download the ZenPack
-    remote_file "/tmp/#{zpfile}" do
-      source "http://dev.zenoss.com/zenpacks/#{zpfile}"
+    #remote_file "/tmp/#{zpfile}" do
+    #  source "http://dev.zenoss.com/zenpacks/#{zpfile}"
+    #  mode "0644"
+    #  action :create
+    #end
+
+    cookbook_file "/tmp/#{zpfile}" do
+      source "#{zpfile}"
       mode "0644"
-      action :create
     end
+
     #install the ZenPack
     execute "zenpack --install" do
       user "zenoss"
