@@ -2,7 +2,7 @@ maintainer       "Opscode, Inc."
 maintainer_email "cookbooks@opscode.com"
 license          "Apache 2.0"
 description      "Installs and configures Zenoss and registers nodes as devices"
-version          "0.7.5"
+version          "0.8.0" #version 0.8.x is from Zenoss
 depends          "openssh"
 depends          "openssl"
 recipe           "zenoss", "Defaults to the client recipe."

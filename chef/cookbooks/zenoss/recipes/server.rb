@@ -64,13 +64,13 @@ when "centos","redhat","scientific"
   #end redhat/centos/scientific block
 when "debian","ubuntu"
 
-  cookbook_file "/tmp/zenoss-stack.deb" do
-    source zenoss[:zenoss][:file][:stack]
+  remote_file "#{Chef::Config[:file_cache_path]}/zenoss-stack.deb" do
+    source "#{node['zenoss']['source']['url']}#{node['zenoss']['file']['stack']}"
     mode "0755"
   end
 
-  package "/tmp/zenoss-stack.deb" do
-    source "/tmp/zenoss-stack.deb"
+  package "#{Chef::Config[:file_cache_path]}/zenoss-stack.deb" do
+    source "#{Chef::Config[:file_cache_path]}/zenoss-stack.deb"
     action :install
     provider Chef::Provider::Package::Dpkg
   end

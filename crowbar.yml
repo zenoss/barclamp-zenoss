@@ -9,8 +9,8 @@
 barclamp:
   name: zenoss
   display: Zenoss
-  description: A way to maximize awesomeness for Zenoss
-  version: 0.1
+  description: Zenoss System management tool
+  version: 0.2
   member:
     - zenoss
 
@@ -19,11 +19,6 @@ crowbar:
   order: 100
   run_order: 100
   chef_order: 1070
-
-# Keith coments
-#nav:
-#  barclamps:
-#    zenoss: barclamp_modules_path(:id=>'zenoss')
 
 debs:
   pkgs:

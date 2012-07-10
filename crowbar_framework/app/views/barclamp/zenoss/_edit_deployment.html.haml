@@ -4,8 +4,9 @@
 
 :javascript
   $(document).ready(function(){
-    var constraints = { "zenoss-server": { "unique": false, "count": 1 },
-                        "zenoss-client": {"unique": true, "count": -1 } };
+    var constraints = { 
+              "zenoss-server": { "unique": true, "count": 1, "admin":true },
+              "zenoss-client": { "unique": true, "count": -1 } };
     node_selector($('#drag_drop'), constraints);
   });
 
